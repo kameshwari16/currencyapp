@@ -29,10 +29,10 @@ class HomeScreen : Screen {
 //        val viewModel = koinScreenModel<HomeViewModel>()
         val rateStatus by viewModel.rateStatus
 //        val allCurrencies = viewModel.allCurrencies
-//        val sourceCurrency by viewModel.sourceCurrency
-//        val targetCurrency by viewModel.targetCurrency
+        val sourceCurrency by viewModel.sourceCurrency
+        val targetCurrency by viewModel.targetCurrency
 
-//        var amount by rememberSaveable { mutableStateOf(0.0) }
+        var amount by rememberSaveable { mutableStateOf(0.0) }
 
 //        var selectedCurrencyType: CurrencyType by remember {
 //            mutableStateOf(CurrencyType.None)
@@ -74,16 +74,16 @@ class HomeScreen : Screen {
         ) {
             HomeHeader(
                 status = rateStatus,
-//                source = sourceCurrency,
-//                target = targetCurrency,
-//                amount = amount,
-//                onAmountChange = { amount = it },
+                source = sourceCurrency,
+                target = targetCurrency,
+                amount = amount,
+                onAmountChange = { amount = it },
                 onRatesRefresh = {
                     viewModel.sendEvent(
                         HomeUiEvent.RefreshRates
                     )
                 },
-//                onSwitchClick = { viewModel.sendEvent(HomeUiEvent.SwitchCurrencies) },
+                onSwitchClick = { viewModel.sendEvent(HomeUiEvent.SwitchCurrencies) },
 //                onCurrencyTypeSelect = { currencyType ->
 //                    selectedCurrencyType = currencyType
 //                    dialogOpened = true
@@ -94,6 +94,8 @@ class HomeScreen : Screen {
 //                target = targetCurrency,
 //                amount = amount
 //            )
+//            )
         }
+
     }
 }
